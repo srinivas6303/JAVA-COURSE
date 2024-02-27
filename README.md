@@ -32,4 +32,6 @@ This folder contain
 30.targetvalue.java 
 31.uniquelements.java 
 32.wavearray.java 
-33.zeroslast.java
+33.wigglesort.java
+34.wordcount.java
+35.zeroslast.java
