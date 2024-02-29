@@ -35,3 +35,4 @@ This folder contain
 33.wigglesort.java
 34.wordcount.java
 35.zeroslast.java
+36.switchcase.java
