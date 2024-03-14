@@ -1,5 +1,7 @@
 package Oops_Concepts;
 
+//One thing into many forms
+//Benefits:flexibility,code reduction
 class Shape {
     void findArea() {
         System.out.println("Area calculation for this shape.");
