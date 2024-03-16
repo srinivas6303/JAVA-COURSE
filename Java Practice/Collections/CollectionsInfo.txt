@@ -1,0 +1,222 @@
+Collections
+------------
+"The Java Collections Framework provides a collection of classes and interfaces to implement 
+various data structure concepts. These collections are used for manipulation and management of data in Java programs."
+
+why Collection can into picture:
+--------------------------------
+To overCome disadvantages of Arrays 
+ Disadvantages of Array
+ 1.Arrays don't use scattered memory
+ 2.Array size is fixed
+ 3.Arrays don't store heterogeneous data
+ 
+
+Differents types of collections:
+--------------------------------
+1.ArrayList
+2.ArrayDeque
+3.PriorityQueue
+4.LinkedList
+5.HashSet
+6.LinkedHashSet
+7.TreeSet
+
+syntax:
+-------
+CollectionName<WrapperClass> obj = new CollectionName<>();
+
+WrapperClass:
+-------------
+Process of converting a primitive data type into an object of its corresponding wrapper class is called "boxing" or "wrapping".
+
+For example, converting an int primitive to an Integer object is boxing:
+           int primitiveInt = 10;
+           Integer wrappedInt = Integer.valueOf(primitiveInt); // Boxing
+
+
+
+Integer wrappedInt = Integer.valueOf(primitiveInt); // Boxing
+Integer: Represents a 32-bit integer value.
+Long: Represents a 64-bit integer value.
+Float: Represents a single-precision 32-bit floating point value.
+Double: Represents a double-precision 64-bit floating point value.
+Short: Represents a 16-bit integer value.
+Byte: Represents an 8-bit integer value.
+Character: Represents a 16-bit Unicode character.
+Boolean: Represents a boolean value (true or false).
+
+
+Printing rules:
+---------------
+1.ArrayList         (Allow Duplicate values) (follow insertion Order)
+
+2.ArrayDeque        (Allow Duplicate values) (follow insertion Order)
+
+3.PriorityQueue     (Allow Duplicate values) (Don't follow insertion Order)
+
+4.LinkedList        (Allow Duplicate values) (follow insertion Order)
+
+5.HashSet           (Don't allow Duplicate values) (Don't follow insertion Order)
+
+6.LinkedHashSet     (Don't allow Duplicate values) (follow insertion Order)
+
+7.TreeSet           (Don't Allow Duplicate values) (Don't follow insertion Order)
+
+
+Methods:
+------
+1.ArrayList:
+------------
+
+1. `add(E e)`:
+    Adds the specified element to the end of the list.  
+
+2. `add(int index, E element)`: 
+    Inserts the specified element at the specified position in the list.
+
+3. `addAll(Collection<? extends E> c)`: 
+    Appends all of the elements in the specified collection to the end of the list.
+
+4. `addAll(int index, Collection<? extends E> c)`:
+    Inserts all of the elements in the specified collection into the list at the specified position.
+
+5. `clear()`: 
+    Removes all of the elements from the list.
+
+6. `contains(Object o)`: 
+    Returns `true` if the list contains the specified element.
+
+7. `get(int index)`: 
+    Returns the element at the specified position in the list.
+
+8. `indexOf(Object o)`: 
+    Returns the index of the first occurrence of the specified element in the list, or -1 if the list does not contain the element.
+
+9. `isEmpty()`: 
+    Returns `true` if the list contains no elements.
+
+10. `remove(Object o)`:    
+    Removes the first occurrence of the specified element from the list, if it is present.
+
+11. `remove(int index)`:
+     Removes the element at the specified position in the list.
+
+12. `set(int index, E element)`: 
+    Replaces the element at the specified position in the list with the specified element.
+
+13. `size()`:
+     Returns the number of elements in the list.
+
+14. `toArray()`:
+     Returns an array containing all of the elements in the list.
+
+15. `iterator()`:
+     Returns an iterator over the elements in the list.
+     
+16. `subList(int fromIndex, int toIndex)`: 
+    Returns a view of the portion of this list between the specified `fromIndex`, inclusive, and `toIndex`, exclusive.
+
+2.ArrayDeque:
+-------------
+
+ArrayDeque<E> deque = new ArrayDeque<>();
+
+// Methods:
+deque.add(E e);
+deque.addFirst(E e);
+deque.addLast(E e);
+deque.offer(E e);
+deque.offerFirst(E e);
+deque.offerLast(E e);
+deque.remove();
+deque.removeFirst();
+deque.removeLast();
+deque.poll();
+deque.pollFirst();
+deque.pollLast();
+deque.element();
+deque.getFirst();
+deque.getLast();
+deque.peek();
+deque.peekFirst();
+deque.peekLast();
+deque.size();
+deque.isEmpty();
+deque.clear();
+deque.contains(Object o);
+deque.remove(Object o);
+deque.toArray();
+
+3.PriorityQueue:
+----------------
+PriorityQueue<E> queue = new PriorityQueue<>();
+
+// Methods:
+queue.add(E e);
+queue.offer(E e);
+queue.remove();
+queue.poll();
+queue.peek();
+queue.element();
+queue.size();
+queue.isEmpty();
+queue.clear();
+queue.contains(Object o);
+queue.toArray();
+
+4.LinkedList:
+-------------
+LinkedList<E> list = new LinkedList<>();
+
+// Methods:
+list.add(E e);
+list.add(int index, E element);
+list.addAll(Collection<? extends E> c);
+list.addAll(int index, Collection<? extends E> c);
+list.remove();
+list.remove(int index);
+list.remove(Object o);
+list.removeAll(Collection<?> c);
+list.removeFirst();
+list.removeLast();
+list.poll();
+list.pollFirst();
+list.pollLast();
+list.element();
+list.getFirst();
+list.getLast();
+list.peek();
+list.peekFirst();
+list.peekLast();
+list.set(int index, E element);
+list.get(int index);
+list.indexOf(Object o);
+list.lastIndexOf(Object o);
+list.subList(int fromIndex, int toIndex);
+list.size();
+list.isEmpty();
+list.clear();
+list.contains(Object o);
+list.toArray();
+list.iterator();
+list.listIterator();
+
+5.HashSet,6.LinkedHashSet,7.TreeSet:
+------------------------------------
+These three sets (HashSet, LinkedHashSet, TreeSet) 
+have similar methods because they all implement the Set interface. Here are the common methods:
+
+Set<E> set = new HashSet<>(); // or LinkedHashSet, or TreeSet
+
+// Methods:
+set.add(E e);
+set.addAll(Collection<? extends E> c);
+set.remove(Object o);
+set.removeAll(Collection<?> c);
+set.clear();
+set.contains(Object o);
+set.isEmpty();
+set.size();
+set.toArray();
+set.iterator();

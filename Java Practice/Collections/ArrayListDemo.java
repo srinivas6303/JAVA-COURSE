@@ -7,7 +7,7 @@ import java.util.Collections;
 public class ArrayListDemo {
     public static void main(String[] args) {
 
-//PROGRAM-1(add,get,set)
+//PROGRAM-1(add,get,set,remove,clear)
         // ArrayList A=new ArrayList();//ArrayList<Integer> A=new ArrayList<>();
         // A.add(999);
         // A.add("Srinivas");
@@ -23,6 +23,14 @@ public class ArrayListDemo {
 
         // A.set(1,"Madhav");
         // System.out.println(A);  //[999, Madhav, Srinivas, 4.99, true]
+
+        //A.remove(0);
+        // System.out.println(A);  //[ Madhav, Srinivas, 4.99, true]
+
+        //A.clear();           
+        // System.out.println(A);  //[To remove all elements from ArrayList]
+
+
 
 
 
@@ -45,7 +53,7 @@ public class ArrayListDemo {
         // System.out.println(A);
 
 
-//PROGRAM-3(addAll)
+//PROGRAM-3(addAll  & removeAll)
         ArrayList<String> fruits = new ArrayList<>();
         fruits .add("Banana");
         fruits .add("Grapes");
@@ -64,6 +72,10 @@ public class ArrayListDemo {
         food.addAll(fruits);
         food.addAll(veg);
         System.out.println("food");
+        System.out.println(food);
+        //remvoeAll
+        System.out.println("After removing fruits from food list");
+        food.removeAll(fruits);
         System.out.println(food);
 
 
