@@ -1,4 +1,4 @@
-package Problems;
+package FileHandling;
 /* 
 In Java, a File is an abstract data type.
 A named location used to store related information is known as a File.
