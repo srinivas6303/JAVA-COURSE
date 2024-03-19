@@ -1,0 +1,161 @@
+MAPS:
+-----
+1.HashMap
+2.LinkedHashMap
+3.TreeMap
+
+syntax:
+-------
+Map<WrappperClass,WrappperClass> Obj=new Map<WrappperClass,WrappperClass>();
+
+
+NOTE:
+----
+-Maps comes under Collections concepts
+-Maps contain unique keys but values may duplicates
+
+->Unsorted order:
+-----------------
+HashMap--(Doesn't follow insertion order)
+LinkedHashMap--(Follow insertion order)
+
+->Sorted order:
+---------------
+TreeMap--(Doesn't follow insertion order)
+           Elements are sorted by keys
+
+
+METHODS:
+--------
+Core Map Functions:
+-------------------
+put(K key, V value): Adds a key-value pair to the map.
+get(Object key): Retrieves the value associated with the specified key.
+containsKey(Object key): Checks if the map contains a specific key.
+containsValue(Object value): Checks if the map contains a specific value.
+remove(Object key): Removes the mapping for a key from the map.
+size(): Returns the number of key-value mappings in the map.
+isEmpty(): Checks if the map is empty.
+
+Iteration Functions:
+--------------------
+keySet(): Returns a Set view of all keys in the map.
+values(): Returns a Collection view of all values in the map.
+entrySet(): Returns a Set view of all key-value mappings.
+
+Bulk Operations:
+----------------
+putAll(Map<? extends K, ? extends V> m): Copies all of the mappings from another map to this map.
+clear(): Removes all mappings from the map.
+Comparison and Equality:
+equals(Object o): Compares this map with another object for equality.
+hashCode(): Returns the hash code value for this map.
+
+
+
+
+CODES:
+------
+
+1.HashMap:(Doesn't follow insertion order)
+----------
+import java.util.*;
+class HashMapDemo {
+    public static void main(String args[]) {
+        HashMap<Integer, String> hm = new HashMap<>();
+        hm.put(1, "srinivas");
+        hm.put(1, "Krishna");
+        hm.put(2, "sai");
+        hm.put(3, "srinivas");
+        hm.put(4, "madhav");
+        
+        System.out.println(hm); // To print all keys and values
+
+        // To print keys
+        for (int key : hm.keySet()) {
+            System.out.println("Key: " + key);
+        }
+
+        // To print values
+        for (String value : hm.values()) {
+            System.out.println("Value: " + value);
+        }
+
+        // To print keys and values
+        for (int key : hm.keySet()) {
+            System.out.println("Key: " + key + " Value: " + hm.get(key));
+        }
+    }
+}
+
+
+2.LinkedHashMap:(Follow insertion order)
+----------------
+import java.util.*;
+class LinkedHashMapDemo {
+    public static void main(String args[]) {
+        LinkedHashMap<Integer, String> lhm = new LinkedHashMap<>();
+     
+        lhm.put(1, "Krishna");
+        lhm.put(2, "sai");
+        lhm.put(3, "srinivas");
+        lhm.put(4, "madhav");
+        
+        System.out.println(lhm); // To print all keys and values
+
+        // To print keys
+        for (int key : lhm.keySet()) {
+            System.out.println("Key: " + key);
+        }
+
+        // To print values
+        for (String value : lhm.values()) {
+            System.out.println("Value: " + value);
+        }
+
+        // To print keys and values
+        for (int key : lhm.keySet()) {
+            System.out.println("Key: " + key + " Value: " + lhm.get(key));
+        }
+    }
+}
+
+
+
+3.TreeMap:(Doesn't follow insertion order)
+----------
+
+import java.util.*;
+class LinkedHashMapDemo {
+    public static void main(String args[]) {
+       TreeMap<Integer, String> tm = new TreeMap<>();
+     
+        tm.put(4, "Krishna");
+        tm.put(2, "sai");
+        tm.put(1, "srinivas");
+        tm.put(3, "madhav");
+        
+        System.out.println(tm); // To print all keys and values
+
+        // To print keys
+        for (int key : tm.keySet()) {
+            System.out.println("Key: " + key);
+        }
+
+        // To print values
+        for (String value : tm.values()) {
+            System.out.println("Value: " + value);
+        }
+
+        // To print keys and values
+        for (int key : tm.keySet()) {
+            System.out.println("Key: " + key + " Value: " + tm.get(key));
+        }
+    }
+}
+
+
+
+
+
+
