@@ -1,1 +1,296 @@
+JDBC(Java Database Connectivity):
+---------------------------------
+JDBC refers to the Java Database Connectivity. It provides java API that allows Java programs to access database management systems (relational database).
+The JDBC API consists of a set of interfaces and classes which enables java programs to execute SQL statements. Interfaces and classes in JDBC API are written in java.
+
+Steps for JDBC:
+---------------
+1.Import sql package
+2.Load Drivers
+3.Establish connection
+4.Create Statement
+5.Get Resultset
+
+------------------------
+Establishing Connection:
+------------------------
+for establishing connection between java application and Database(DBMS) we need to follow some steps they are:
+1.Import sql package by using import java.sql.*; statement
+2.Load Drivers by using Class.forName(driver); method
+3.Establish connection by using DriverManager.getConnection(url,user,pass); method
+
+        /*
+        //  MYSQL
+        String driver = "com.mysql.cj.jdbc.Driver";
+        String url = "jdbc:mysql://localhost:3306/mydatabase";
+
+        //ORACLE
+        String driver = "oracle.jdbc.driver.OracleDriver";
+        String url = "jdbc:oracle:thin:@localhost:1521:xe";
+        */
+
+
+   +-------------------+        +-------------------+
+   |   Java Application|        |     DBMS          |
+   |                   |        |                   |
+   |    +----------+   |        |    +----------+   |
+   |    | JDBC API |   |        |    | Database |   |
+   |    +-----+----+   |        |    +-----+----+   |
+   |          |        |        |          |        |
+   |          | JDBC   +-------->          |        |
+   |          | Connection         |        |        |
+   |          +--------+        +----------+        |
+   |                   |        |                   |
+   +-------------------+        +-------------------+
+
+//Before running JDBC code, you need to include the JDBC driver JAR file in your project's classpath.
+
+//IMPORTING SQL PACKAGE
+import java.sql.*;
+class JDBConnection {
+    public static void main(String[] args) throws Exception {
+
+        //VARIABLES
+        String driver = "oracle.jdbc.driver.OracleDriver";
+        String url = "jdbc:oracle:thin:@localhost:1521:xe";
+        String user = "system";
+        String pass = "root";
+
+        //LOAD DRIVERS
+        Class.forName(driver);
+      
+        //CONNECTION
+        Connection con = DriverManager.getConnection(url, user, pass);
+        System.out.println("Connection established!");
+    }
+}
+
+---------------
+CREATING TABLE:
+---------------
+
+//IMPORTING SQL PACKAGE
+import java.sql.*;
+class TableCreation {
+    public static void main(String[] args) throws Exception {
+
+        //VARIABLES
+        String driver = "oracle.jdbc.driver.OracleDriver";
+        String url = "jdbc:oracle:thin:@localhost:1521:xe";
+        String user = "system";
+        String pass = "root";
+        String sql = "CREATE TABLE Colleges (College_code NUMBER, College_Name VARCHAR2(30), dept1 VARCHAR2(30), dept2 VARCHAR2(30), dept3 VARCHAR2(30))";
+
+        //LOAD DRIVERS
+        Class.forName(driver);
+      
+        //CONNECTION
+        Connection con = DriverManager.getConnection(url, user, pass);
+        System.out.println("Connection established!");
+
+        //STATEMENT
+        Statement st = con.createStatement();
+        st.execute(sql);
+        System.out.println("Table created successfully!");
+    }
+}
+
+
+----------------------------
+INSERTING VALUES INTO TABLE:
+----------------------------
+
+//IMPORTING SQL PACKAGE
+import java.sql.*;
+class ValuesInsertion {
+    public static void main(String[] args) throws Exception {
+
+        //VARIABLES
+        String driver = "oracle.jdbc.driver.OracleDriver";
+        String url = "jdbc:oracle:thin:@localhost:1521:xe";
+        String user = "system";
+        String pass = "root";
+
+        String sql = "INSERT INTO Colleges VALUES (001,'MREC','CSE','EEE','MECH'),(002,'CMR','CSE','ECE','MECH')";
+
+        //String sql = "INSERT INTO Colleges (College_code,College_Name,dept1, dept2, dept3) VALUES (001,'MREC','CSE','EEE','MECH')";
+
+        //LOAD DRIVERS
+        Class.forName(driver);
+      
+        //CONNECTION
+        Connection con = DriverManager.getConnection(url, user, pass);
+        System.out.println("Connection established!");
+
+        //STATEMENT
+        Statement st = con.createStatement();
+        st.execute(sql);
+        System.out.println("INSERTED VALUES INTO TABLE successfully!");
+    }
+}
+
+
+
+
+-------------
+UPDATING ROW:
+-------------
+//IMPORTING SQL PACKAGE
+import java.sql.*;
+class UpdatingRow {
+    public static void main(String[] args) throws Exception {
+
+        //VARIABLES
+        String driver = "oracle.jdbc.driver.OracleDriver";
+        String url = "jdbc:oracle:thin:@localhost:1521:xe";
+        String user = "system";
+        String pass = "root";
+        String sql = "UPDATE Colleges SET dept1='Computer Science' where College_code=001 ";
+
+
+        //LOAD DRIVERS
+        Class.forName(driver);
+      
+        //CONNECTION
+        Connection con = DriverManager.getConnection(url, user, pass);
+        System.out.println("Connection established!");
+
+        //STATEMENT
+        Statement st = con.createStatement();
+        st.executeUpdate(sql);
+        System.out.println("Updated successfully!");
+    }
+}
+
+
+-------------
+DELETING ROW:
+-------------
+//IMPORTING SQL PACKAGE
+import java.sql.*;
+class DeletingRow {
+    public static void main(String[] args) throws Exception {
+
+        //VARIABLES
+        String driver = "oracle.jdbc.driver.OracleDriver";
+        String url = "jdbc:oracle:thin:@localhost:1521:xe";
+        String user = "system";
+        String pass = "root";
+        String sql = "DELETE FROM Colleges where College_code=002 ";
+
+
+        //LOAD DRIVERS
+        Class.forName(driver);
+      
+        //CONNECTION
+        Connection con = DriverManager.getConnection(url, user, pass);
+        System.out.println("Connection established!");
+
+        //STATEMENT
+        Statement st = con.createStatement();
+        st.executeUpdate(sql);
+        System.out.println("deleted successfully!");
+    }
+}
+
+
+-----------
+FETCH DATA:
+-----------
+
+import java.sql.*;
+
+class FetchingData {
+    public static void main(String[] args) throws Exception {
+
+        // VARIABLES
+        String driver = "oracle.jdbc.driver.OracleDriver";
+        String url = "jdbc:oracle:thin:@localhost:1521:xe";
+        String user = "system";
+        String pass = "root";
+        String sql = "SELECT * FROM Colleges";
+
+        // LOAD DRIVERS
+        Class.forName(driver);
+
+        // CONNECTION
+        Connection con = DriverManager.getConnection(url, user, pass);
+        System.out.println("Connection established!");
+
+        // STATEMENT
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery(sql);
+
+        while (rs.next()) {
+            System.out.println("CollegeCode: " + rs.getInt(1) + " CollegeName: " + rs.getString(2) + " Dept1: " + rs.getString(3) + " Dept2: " + rs.getString(4) +
+                                " Dept3: " + rs.getString(5));
+        }
+        System.out.println("Data fetched successfully!");
+
+        // CLOSE CONNECTION
+        rs.close();
+        st.close();
+        con.close();
+    }
+}
+
+
+
+
+-----------------------
+INSERTING DYNAMIC DATA:
+-----------------------
+import java.sql.*;
+import java.util.*;
+
+class InsertingDynamicData {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+
+        String driver = "oracle.jdbc.driver.OracleDriver";
+        String url = "jdbc:oracle:thin:@localhost:1521:xe";
+        String user = "system";
+        String pass = "root";
+        String sql = "INSERT INTO Colleges VALUES(?,?,?,?,?)";
+
+        try {
+            System.out.println("Enter College code:");
+            int cc = sc.nextInt();
+            sc.nextLine(); // Consume newline left-over
+
+            System.out.println("Enter College Name:");
+            String cn = sc.nextLine();
+
+            System.out.println("Enter Dept1:");
+            String d1 = sc.nextLine();
+
+            System.out.println("Enter Dept2:");
+            String d2 = sc.nextLine();
+
+            System.out.println("Enter Dept3:");
+            String d3 = sc.nextLine();
+
+            // JDBC CODE
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url, user, pass);
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, cc);
+            ps.setString(2, cn);
+            ps.setString(3, d1);
+            ps.setString(4, d2);
+            ps.setString(5, d3);
+            ps.executeUpdate();
+
+            System.out.println("Data inserted successfully.");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+
+
+
+
+
 
