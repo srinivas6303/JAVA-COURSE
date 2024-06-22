@@ -1,0 +1,148 @@
+Constructor in Java:
+--------------------
+In Java, a constructor is a block of codes similar to the method. It is called when an instance of the class is created. At the time of calling constructor, memory for the object is allocated in the memory.
+
+It is a special type of method which is used to initialize the object.
+
+Every time an object is created using the new() keyword, at least one constructor is called.
+
+It calls a default constructor if there is no constructor available in the class. In such case, Java compiler provides a default constructor by default.
+
+
+Rules for creating Java constructor:
+-------------------------------------
+There are two rules defined for the constructor.
+
+Constructor name must be the same as its class name
+A Constructor must have no explicit return type
+A Java constructor cannot be abstract, static, final, and synchronized
+
+
+Types of Constructors:
+----------------------
+
+1.Default Constructor:
+----------------------
+A constructor is called "Default Constructor" when it doesn't have any parameter.
+
+The default constructor is used to provide the default values to the object like 0, null, etc., depending on the type.
+
+If there is no constructor in a class, compiler automatically creates a default constructor.
+
+
+code:
+------
+class Default {
+  int rollno;
+  String name;
+  public void Display() {
+    System.out.println(rollno + " " + name);
+  }
+  public static void main(String args[]) {
+    Default D = new Default();
+    D.Display();
+  }
+}
+
+output:
+-------
+0 null
+
+
+
+
+
+
+2.Parameterized Constructor
+---------------------------
+A constructor which has a specific number of parameters is called a parameterized constructor.
+
+
+
+
+
+code:
+-----
+class para {
+    int rollno;
+    String name;
+
+    public para(int rollno, String name) {
+        this.rollno = rollno;
+        this.name = name;
+    }
+
+    public void Display() {
+        System.out.println(rollno + " " + name);
+    }
+
+    public static void main(String[] args) {
+        para P = new para(01, "Srinivas");
+        P.Display();
+    }
+}
+
+output:
+-------
+1 Srinivas
+
+
+
+
+Imp:
+----
+Can a constructor override?
+No: A constructor cannot override another constructor. In Java, a constructor is a special method that is called when an object is created. It does not have a return type, not even void, and it cannot be overridden. If you want to achieve polymorphism in constructors, you can use method overloading.
+
+
+Can a constructor be overloaded?
+Yes: A constructor can be overloaded. In Java, you can have multiple constructors with different parameters. This is known as constructor overloading. The constructor that gets called is determined by the number and types of arguments passed to it.
+
+
+Can a static constructor be overloaded?
+No: A static constructor cannot be overloaded. In Java, a static constructor is a static block that is used to initialize static variables. It is not a method and cannot be overloaded. If you want to achieve polymorphism in static initialization, you can use method overloading or static method overloading.
+
+
+
+
+
+
+Constructor Overloaded:
+-----------------------
+overloaded means same method with different parameters
+
+class para {
+    int rollno;
+    String name;
+    String Clg;
+
+    public para(int rollno, String name) {
+        this.rollno = rollno;
+        this.name = name;
+    }
+    
+     public para(int rollno, String name,String Clg) {
+        this.rollno = rollno;
+        this.name = name;
+        this.Clg=Clg;
+    }
+
+    public void Display1() {
+        System.out.println(rollno + " " + name);
+    }
+    public void Display2() {
+        System.out.println(rollno + " " + name+" "+Clg);
+    }
+
+    public static void main(String[] args) {
+        para P1 = new para(01, "Srinivas");
+        para P2 = new para(02, "Mahesh","Mrec");
+        P1.Display1();
+        P2.Display2();
+    }
+}
+
+output:
+-------
+1 Srinivas
+2 Mahesh Mrec
