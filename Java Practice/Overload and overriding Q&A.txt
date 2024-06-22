@@ -1,0 +1,16 @@
+Overload and overriding Q&A
+---------------------------
+STATIC METHOD OVERLOAD-YES
+STATIC METHOD OVERRIDE-NO
+
+
+
+Main method can overloaded-YES
+Main method can override-NO
+
+CONSTRUCTOR OVERLOAD-YES
+Static Constructor overload-No
+CONSTRUCTOR OVERRIDE-NO
+
+
+
