@@ -1,38 +1,32 @@
-# Java-Practice
-This folder contain
+# Java Concepts and Examples
 
-1.2Largestele.java
-2.Bill.java 
-3.constructor.java 
-4.datatypeconversion.java 
-5.DSA_Mergesort.java 
-6.evenorodd.java 
-7.FileHandling.java 
-8.hello.txt 9.LongestWord.java 
-10.lowest2index.java 
-11.lowhighestelesum.java 
-12.maxsub_array.java 
-13.mergeTwoArrays.java 
-14.missingno.java 
-15.monotonicArray.java 
-16.Multidimension_array.java 
-17.multipleInheritence.java 
-18.nonrepeatedelement.java 
-19.nosum.java 
-20.palindrome.java 
-21.primeno.java 
-22.printwithoutsemicol.java 
-23.Readme.md 
-24.replacemethod.java 
-25.ReverseAcharArray.java 
-26.singleuniquno.java 
-27.sorting.java 
-28.stringtochararray.java 
-29.swappingTwoNos.java 
-30.targetvalue.java 
-31.uniquelements.java 
-32.wavearray.java 
-33.wigglesort.java
-34.wordcount.java
-35.zeroslast.java
-36.switchcase.java
+This repository contains various Java concepts and examples, including collections, file handling, multi-threading, OOP concepts, JDBC, and problem-solving exercises.
+
+## Directory Structure
+
+- **Collections**
+  - Contains various examples and files related to Java Collections.
+
+- **FileHandling**
+  - Includes examples and exercises related to file handling in Java.
+ 
+- **MultiThreading**
+  - Demonstrates multi-threading concepts and examples.
+
+
+- **Oops_Concepts**
+  - Covers various OOP concepts such as encapsulation, inheritance, polymorphism, etc.
+
+
+- **Problems**
+  - Contains problem-solving exercises and examples.
+
+- **JDBC**
+  - Examples and exercises related to Java Database Connectivity (JDBC).
+
+- **Constructor.txt**
+  - Details and examples related to constructors in Java.
+  - *Last commit message:* constructor added (2 weeks ago)
+
+- **Overload and overriding Q&A.txt**
+  - Contains questions and answers related to method overloading and overriding in Java.
