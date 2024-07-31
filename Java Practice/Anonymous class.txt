@@ -1,0 +1,143 @@
+Anonymous class:
+---------------
+it is a inner class without class name
+
+
+Without Anonymous class:
+------------------------
+class A {
+    public void show() {
+        System.out.println("in A show");
+    }
+}
+
+class B extends A {
+    public void show() {
+        System.out.println("in B show");
+    }
+}
+
+class Demo {
+    public static void main(String[] args) {
+        A obj1 = new A();
+        B obj2 = new B();
+
+        obj1.show();
+        obj2.show();
+    }
+}
+
+output:
+-------
+in A show
+in B show
+
+Note:
+-----
+Here compiler create three class file they are 
+Demo.class
+A.class and B.class
+
+
+
+
+
+Reason for Anonymous class:
+---------------------------
+In the provided code, the A and B classes are defined, and the show() method in the B class is overriding the show() method in the A class. However, in the Demo class, instead of creating instances of A and B directly, the code is using anonymous classes to create the objects.
+An anonymous class is an inner class that is defined and instantiated at the same time, without giving it a name. This allows you to create a new implementation of a class or interface on the fly, without having to define a separate class.
+
+
+Anonymous class:
+----------------
+class A {
+    public void show() {
+        System.out.println("in A show"); //old method message
+    }
+}
+
+
+class Demo {
+    public static void main(String[] args) {
+        A obj1 = new A()
+        //inner class without Name is called Anonymous class
+        {      
+               //override
+                public void show() 
+                {
+                  System.out.println("in new show"); //new method message
+                 }                              
+        };
+       
+
+        obj1.show();
+        
+    }
+}
+
+output:
+-------
+in new show
+
+
+Note:
+-----
+the Java compiler will create the following class files for the provided code:
+A.class
+Demo.class
+Demo$1.class (the anonymous class)
+
+
+
+--------------
+Addition info:
+--------------
+providing body to abstract methods and interface methods by using Anonymous class
+
+Abstract Class:
+---------------
+abstract class Person {
+    abstract void eat();
+}
+
+class TestAnonymousInner {
+    public static void main(String args[]) {
+        Person p = new Person() {
+            void eat() {
+                System.out.println("nice fruits");
+            }
+        };
+        p.eat();
+    }
+}
+ 
+
+
+interface:
+----------
+interface Animal {
+  public void animalSound(); // interface method (does not have a body)
+  public void sleep(); // interface method (does not have a body)
+}
+
+
+class Main {
+  public static void main(String[] args) {
+    Animal a=new Animal(){
+        
+      public void animalSound(){
+          System.out.println("animal sound");
+      }
+      
+      public void sleep(){
+          System.out.println("sleep");
+      }
+      
+      
+    };
+    
+    
+    a.animalSound();
+    a.sleep();
+  }
+}

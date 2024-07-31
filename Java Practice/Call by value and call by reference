@@ -1,0 +1,65 @@
+Call by Value:
+-------------
+There is only call by value in java, not call by reference. If we call a method passing a value, it is known as call by value.
+The changes being done in the called method, is not affected in the calling method.
+
+Example of call by value in java
+In case of call by value original value is not changed.
+
+simple example:
+--------------
+public class callbyvalue {
+    int data=50;
+    void change(int data){
+        data=data+100;
+        System.out.println("Method data value:"+data);
+    }
+
+    public static void main(String[] args) {
+        callbyvalue c=new callbyvalue();
+        System.out.println("Before calling method:"+c.data);
+
+        c.change(500);
+
+
+        System.out.println("After called method:"+c.data);
+    }
+}
+output:
+Before calling method:50
+Method data value:600
+After called method:50
+
+
+
+Another Example of call by value in java
+In case of call by reference original value is changed if we made changes in the called method. If we pass object in place of any primitive value,
+original value will be changed.In this example we are passing object as a value.
+simple example:
+--------------
+
+class CallByReference {
+    int data = 50;
+
+    public void change(CallByReference cbr) {
+        cbr.data = cbr.data + 500;
+        System.out.println("Method value: " + cbr.data);
+    }
+
+    public static void main(String[] args) {
+        CallByReference cbr = new CallByReference();
+
+        System.out.println("Before change: " + cbr.data);
+        cbr.change(cbr); // passing object
+        System.out.println("After change: " + cbr.data);
+    }
+}
+output:
+Before change: 50
+Method value: 550
+After change: 550
+
+
+
+
+

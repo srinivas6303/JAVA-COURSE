@@ -1,0 +1,84 @@
+INNER CLASS:
+------------
+In Java, it is also possible to nest classes (a class within a class). 
+The purpose of nested classes is to group classes that belong together, 
+which makes your code more readable and maintainable.
+
+syntax:
+------
+class A
+{ 
+
+   class B
+   {
+
+    }
+
+}
+
+
+
+
+Non-Static method and class:
+----------------------------
+
+
+class c1
+ {
+    public void m1(){
+        System.out.println("I am from  c1");
+    }
+
+        
+    class c2{
+        public void m2(){
+        System.out.println("I am from  c2");
+    }
+    }
+
+    public static void main(String[] args) {
+        c1 a=new c1();
+        a.m1();
+        
+        //gives error
+        //c2 b=new c2();
+       // c2.m2();
+        
+        c1.c2  b=a.new c2(); //c2  belongs  to c1
+        b.m2();
+        
+    }
+}
+
+
+Static Method and class:
+------------------------
+
+outerclass -static -error
+innerclass -static -execute
+
+
+class c1 {
+    public void m1(){
+        System.out.println("I am from  c1");
+    }
+        
+    static class c2{
+        public static void  m2(){                     //you can use non-static method also  [public void  m2()]
+        System.out.println("I am from  c2");
+    }
+    
+    }
+    public static void main(String[] args) {
+        c1 a=new c1();
+        a.m1();
+        
+        //gives error
+        //c2 b=new c2();
+       // c2.m2();
+        
+        c1.c2  b=new c1.c2(); //c2  belongs  to c1
+        b.m2();
+        
+    }
+}
