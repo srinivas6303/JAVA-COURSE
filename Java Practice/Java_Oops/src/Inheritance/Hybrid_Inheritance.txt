@@ -1,0 +1,4 @@
+ Hybrid inheritance :
+ --------------------
+Hybrid inheritance is a combination of
+simple, multiple inheritance and hierarchical inheritance.
