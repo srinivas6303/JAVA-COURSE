@@ -1,0 +1,106 @@
+REAL TIME EXAMPLES:
+-------------------
+
+INTERFACES:
+----------
+Suppose you have some rupees in your hands. You can buy from this money something from that shop where billing is done in rupees.
+
+Suppose you go to such a shop for buying where only dollars are accepted, you cannot use your rupees there. This money is like a class. A class can fulfill only a particular requirement. It is not useful to handle different situations.
+
+Now suppose you have a credit card. In a shop, you can easily pay in rupees by using your credit card. If you go to another shop where dollars are accepted, you can also pay in dollars. The same credit card can be used to pay in pounds as well. But how is this credit card paying in different currencies? Let’s understand it.
+
+Basically, a credit card is like an interface that performs several tasks. It is a thin plastic card that contains identification information such as your name, bank name, and perhaps some numbers. It does not hold any money physically. But here question is that how are shop keepers able to draw money from credit card?
+
+Behind credit card, have our bank account details from where the money is transferred to shop keepers after authentication. This bank account can be considered as an implementation class that actually performs different tasks. See the below figure to understand the concept.
+
+                              ----->Doller
+                             |
+                             |
+ interface------->credit card------->Rupees
+                    ^
+                    |         |
+                    |         |
+                    |          ------>Pounds
+                    |
+                    |
+ implementation
+ of class ----->Bank Account 
+
+
+
+
+code:
+----
+
+// Payment interface
+public interface Payment {
+    void payInDollars(double amount);
+    void payInRupees(double amount);
+    void payInPounds(double amount);
+}
+
+
+
+
+// BankAccount class implementing Payment interface
+public class BankAccount implements Payment {
+    private String accountHolder;
+    private String bankName;
+    private double balance;  // Balance in default currency (e.g., USD)
+
+    public BankAccount(String accountHolder, String bankName, double balance) {
+        this.accountHolder = accountHolder;
+        this.bankName = bankName;
+        this.balance = balance;
+    }
+
+    @Override
+    public void payInDollars(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+            System.out.println("Paid " + amount + " dollars. Remaining balance: " + balance + " dollars.");
+        } else {
+            System.out.println("Insufficient balance.");
+        }
+    }
+
+    @Override
+    public void payInRupees(double amount) {
+        double amountInDollars = convertRupeesToDollars(amount);
+        if (balance >= amountInDollars) {
+            balance -= amountInDollars;
+            System.out.println("Paid " + amount + " rupees. Remaining balance: " + balance + " dollars.");
+        } else {
+            System.out.println("Insufficient balance.");
+        }
+    }
+
+    @Override
+    public void payInPounds(double amount) {
+        double amountInDollars = convertPoundsToDollars(amount);
+        if (balance >= amountInDollars) {
+            balance -= amountInDollars;
+            System.out.println("Paid " + amount + " pounds. Remaining balance: " + balance + " dollars.");
+        } else {
+            System.out.println("Insufficient balance.");
+        }
+    }
+
+    private double convertRupeesToDollars(double rupees) {
+        // Assume conversion rate of 1 USD = 75 INR
+        return rupees / 75;
+    }
+
+    private double convertPoundsToDollars(double pounds) {
+        // Assume conversion rate of 1 USD = 0.75 GBP
+        return pounds / 0.75;
+    }
+
+    public static void main(String[] args) {
+        BankAccount account = new BankAccount("John Doe", "Example Bank", 1000.0);
+
+        account.payInDollars(100);
+        account.payInRupees(7500);
+        account.payInPounds(50);
+    }
+}
