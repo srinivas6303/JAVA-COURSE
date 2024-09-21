@@ -1,0 +1,29 @@
+Differences between Comparable and Comparator Interfaces in Java:
+------------------------------------------------------------------
+
+Comparable:
+-----------
+• Functional Interface
+• Will compare only homogeneous objects
+• Package: java.lang
+• One method: compareTo(Object o) - abstract method
+• Available since Java 1.2
+• Implemented by classes like String, Wrapper classes (Integer, Double, etc.)
+• Used when natural ordering is needed
+• Compares objects of the same class (e.g., sorting by roll number)
+• Comparison logic is inside the class itself
+• Modifies the class to implement comparison
+
+Comparator:
+-----------
+• Functional Interface
+• Will compare both homogeneous and heterogeneous objects
+• Package: java.util
+• Two methods:
+  - compare(Object o1, Object o2) - abstract method
+  - equals(Object o) - inherited from Object class
+• Available since Java 1.2
+• Used for custom sorting logic (can sort by multiple criteria)
+• Comparison logic is outside the class (in a separate class)
+• Allows sorting in different ways without modifying the class
+• Can be used to sort objects from different classes
