@@ -1,5 +1,8 @@
 package MultiThreading;
 
+Multithreading is the process of executing two or more threads simultaneously to make a program run faster and more efficiently, 
+ especially on multi-core processors.
+
 /**
  * ThreadCreation in 2 ways
  * 1.extends Thread class
